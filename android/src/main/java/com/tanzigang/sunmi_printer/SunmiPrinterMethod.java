@@ -124,6 +124,14 @@ public class SunmiPrinterMethod {
         }
     }
 
+    public void openDrawer() {
+        try {
+            _woyouService.openDrawer();
+        } catch (RemoteException e) {
+
+        }
+    }
+
     public void openCashDrawer() {
         byte[] aa = new byte[5];
         aa[0] = 0x10;

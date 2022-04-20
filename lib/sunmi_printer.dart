@@ -66,6 +66,9 @@ class SunmiPrinter {
     Map<String, dynamic> arguments = <String, dynamic>{"lines": lines};
     await _channel.invokeMethod("LINE_WRAP", arguments);
   }
+  static Future<void> openDrawer() async {
+    await _channel.invokeMethod("CASE_DRAWER");
+  }
 
   /// 0 align left, 1 center, 2 align right.
   static Future<void> setAlignment(int alignment) async {

@@ -26,7 +26,9 @@ interface IWoyouService {
 	String getPrinterModal();
 	
 	void getPrintedLength(in ICallback callback);
-	
+
+	void openDrawer(in ICallback callback);
+
 	void lineWrap(int n, in ICallback callback);
 	
 	void sendRAWData(in byte[] data, in ICallback callback);

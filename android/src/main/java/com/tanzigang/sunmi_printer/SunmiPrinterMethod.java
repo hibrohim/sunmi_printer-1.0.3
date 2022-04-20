@@ -5,14 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
-import woyou.aidlservice.jiuiv5.*;
 
 public class SunmiPrinterMethod {
 
@@ -82,6 +79,12 @@ public class SunmiPrinterMethod {
             return true;
         } catch (RemoteException e) {
             return false;
+        }
+    }
+    public void openDrawer() {
+        try {
+            _woyouService.openDrawer(this._callback());
+        } catch (RemoteException e) {
         }
     }
 

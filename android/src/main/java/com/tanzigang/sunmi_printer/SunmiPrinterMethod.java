@@ -124,6 +124,21 @@ public class SunmiPrinterMethod {
         }
     }
 
+    public void openCashDrawer() {
+        byte[] aa = new byte[5];
+        aa[0] = 0x10;
+        aa[1] = 0x14;
+        aa[2] = 0x00;
+        aa[3] = 0x00;
+        aa[4] = 0x00;
+
+        try {
+           woyouService.sendRAWData(aa, callback);
+        } catch (RemoteException e1) {
+           e1.printStackTrace();
+        }
+    }
+
     public Boolean printColumn(String[] stringColumns, int[] columnWidth, int[] columnAlignment) {
         try {
             _woyouService.printColumnsString(stringColumns, columnWidth, columnAlignment, this._callback());

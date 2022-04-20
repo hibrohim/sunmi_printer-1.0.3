@@ -126,7 +126,7 @@ public class SunmiPrinterMethod {
 
     public void openDrawer() {
         try {
-            _woyouService.openDrawer();
+            _woyouService.openDrawer(this._callback());
         } catch (RemoteException e) {
 
         }
@@ -141,9 +141,9 @@ public class SunmiPrinterMethod {
         aa[4] = 0x00;
 
         try {
-           woyouService.sendRAWData(aa, callback);
+            _woyouService.sendRAWData(aa, this._callback());
         } catch (RemoteException e1) {
-           e1.printStackTrace();
+
         }
     }
 

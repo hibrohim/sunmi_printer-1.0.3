@@ -140,5 +140,10 @@ class SunmiPrinter {
     await _channel.invokeMethod("LABEL_OUTPUT");
   }
 
+  /// Open Cash Drawer
+  static Future<void> openCashDrawer() async {
+    await _channel.invokeMethod("OPEN_CASH_DRAWER");
+  }
+
 
 }

@@ -95,6 +95,8 @@ interface IWoyouService {
 
     void autoOutPaper(in ICallback callback);
 
+    void openDrawer(in ICallback callback);
+
     void setPrinterStyle(int key, int value);
 
     int getPrinterMode();

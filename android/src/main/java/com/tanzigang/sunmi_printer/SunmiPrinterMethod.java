@@ -94,6 +94,15 @@ public class SunmiPrinterMethod {
         }
     }
 
+    public Boolean openDrawer() {
+        try {
+            _woyouService.openDrawer();
+            return true;
+        } catch (RemoteException e) {
+            return false;
+        }
+    }
+
     public Boolean setFontSize(Double fontSize) {
         double v = fontSize;
         try {

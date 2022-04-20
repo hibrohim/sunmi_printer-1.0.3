@@ -73,6 +73,10 @@ class SunmiPrinter {
     await _channel.invokeMethod("SET_ALIGNMENT", arguments);
   }
 
+  static Future<void> openDrawer() async {
+    await _channel.invokeMethod("CASE_DRAWER");
+  }
+
   static Future<void> setFontSize(double fontSize) async {
     Map<String, dynamic> arguments = <String, dynamic>{"fontSize": fontSize};
     await _channel.invokeMethod("SET_FONT_SIZE", arguments);

@@ -45,6 +45,16 @@ class _HomeState extends State<Home> {
   String? _printerStatus = '';
   bool _apiCall = false;
 
+  open(){
+    String type = 'OPEN_DRAWER';
+    _bindingPrinter().then( (binded) async => {
+      if (binded!) {
+        if(type == 'OPEN_DRAWER') _openDrawer()
+        else _openCashDrawer(),
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -54,9 +64,7 @@ class _HomeState extends State<Home> {
       if (binded!) {
         _getPrinterStatus(),
         _getPrinterMode(),
-
       }
-
     });
 
   }
@@ -71,6 +79,14 @@ class _HomeState extends State<Home> {
     setState(() {
       _printerStatus = result;
     });
+  }
+
+  Future<void> _openDrawer() async {
+    await SunmiPrinter.openDrawer();
+  }
+
+  Future<void> _openCashDrawer() async {
+    await SunmiPrinter.openCashDrawer();
   }
 
   Future<void> _getPrinterMode() async {

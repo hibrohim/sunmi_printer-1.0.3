@@ -141,12 +141,13 @@ class SunmiPrinter {
   }
 
   /// Open Cash Drawer
-  static Future<void> openCashDrawer() async {
-    await _channel.invokeMethod("OPEN_CASH_DRAWER");
+  static Future<void> openDrawer() async {
+    await _channel.invokeMethod("OPEN_DRAWER");
   }
 
-  static Future<void> openDrawer() async {
-    await _channel.invokeMethod("CASE_DRAWER");
+  // Open Cash Drawer
+  static Future<void> openCashDrawer() async {
+    await _channel.invokeMethod("OPEN_CASH_DRAWER");
   }
 
 }

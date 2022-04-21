@@ -124,26 +124,22 @@ public class SunmiPrinterMethod {
         }
     }
 
-    public void openDrawer() {
+    public Boolean openDrawer() {
         try {
             _woyouService.openDrawer(this._callback());
+            return true;
         } catch (RemoteException e) {
-
+            return false;
         }
     }
 
-    public void openCashDrawer() {
-        byte[] aa = new byte[5];
-        aa[0] = 0x10;
-        aa[1] = 0x14;
-        aa[2] = 0x00;
-        aa[3] = 0x00;
-        aa[4] = 0x00;
-
+    public Boolean openCashDrawer() {
+        byte[] command = new byte[]{0x10, 0x14, 0x00, 0x00, 0x00};
         try {
-            _woyouService.sendRAWData(aa, this._callback());
-        } catch (RemoteException e1) {
-
+            _woyouService.sendRAWData(command, this._callback());
+            return true;
+        } catch (RemoteException e) {
+            return false;
         }
     }
 

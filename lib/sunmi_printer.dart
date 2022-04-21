@@ -126,7 +126,6 @@ class SunmiPrinter {
   /// Exit the transaction printing mode
   static Future<void> exitTransactionPrint([bool clear = true]) async {
     print('exitTransactionPrint $clear');
-    Map<String, dynamic> arguments = <String, dynamic>{"clearExit": clear};
     await _channel.invokeMethod("EXIT_PRINTER_BUFFER", arguments);
   }
 
@@ -147,8 +146,9 @@ class SunmiPrinter {
   }
 
   // Open Cash Drawer
-  static Future<bool?> openCashDrawer() async {
-    final bool? status = await _channel.invokeMethod('OPEN_CASH_DRAWER');
+  static Future<bool?> openCashDrawer({bool isActive = true}) async {
+    Map<String, dynamic> arguments = <String, dynamic>{"isActive": isActive};
+    final bool? status = await _channel.invokeMethod('OPEN_CASH_DRAWER', arguments);
     return status;
   }
 

@@ -83,7 +83,8 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
                 break;
 
             case "OPEN_CASH_DRAWER":
-                sunmiPrinterMethod.openCashDrawer();
+                Boolean isActive = call.argument("isActive");
+                sunmiPrinterMethod.openCashDrawer(isActive);
                 result.success(true);
                 break;
 

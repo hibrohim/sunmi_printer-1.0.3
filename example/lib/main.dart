@@ -61,13 +61,13 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
-    _bindingPrinter().then((binded) async => {
-          if (binded!)
-            {
-              _getPrinterStatus(),
-              _getPrinterMode(),
-            }
-        });
+    // _bindingPrinter().then((binded) async => {
+    //       if (binded!)
+    //         {
+    //           _getPrinterStatus(),
+    //           _getPrinterMode(),
+    //         }
+    //     });
   }
 
   Future<bool?> _bindingPrinter() async {
@@ -83,13 +83,23 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> _openDrawer() async {
-    final bool? result = await SunmiPrinter.openDrawer();
-    print('_openDrawer: $result');
+    print('_openDrawer..!');
+    try {
+      final bool? result = await SunmiPrinter.openDrawer();
+      print('_openDrawer sukses: $result');
+    } catch (e) {
+      print('_openDrawer: $e');
+    }
   }
 
   Future<void> _openCashDrawer() async {
-    final bool? result = await SunmiPrinter.openCashDrawer();
-    print('_openCashDrawer: $result');
+    print('_openCashDrawer..!');
+    try {
+      final bool? result = await SunmiPrinter.openCashDrawer(isActive: false);
+      print('_openCashDrawer sukses: $result');
+    } catch (e) {
+      print('_openCashDrawer: $e');
+    }
   }
 
   Future<void> _getPrinterMode() async {
@@ -249,14 +259,14 @@ class _HomeState extends State<Home> {
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () async {
-                      open();
+                      _openDrawer();
                     },
                     child: Text('open()'),
                   ),
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () async {
-                      openCash();
+                      _openCashDrawer();
                     },
                     child: Text('openCash()'),
                   ),

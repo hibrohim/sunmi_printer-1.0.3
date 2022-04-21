@@ -56,7 +56,7 @@ public class SunmiPrinterMethod {
 
     public void initPrinter() {
         try {
-            _woyouService.printerInit( this._callback() );
+            _woyouService.printerInit(this._callback());
 
         } catch (RemoteException e) {
 
@@ -65,7 +65,7 @@ public class SunmiPrinterMethod {
 
     public int updatePrinter() {
         try {
-            final int status =  _woyouService.updatePrinterState();
+            final int status = _woyouService.updatePrinterState();
             return status;
         } catch (RemoteException e) {
             return 0; // error
@@ -133,13 +133,20 @@ public class SunmiPrinterMethod {
         }
     }
 
-    public Boolean openCashDrawer() {
-        try {
-            byte[] command = new byte[]{0x10, 0x14, 0x00, 0x00, 0x00};
-            _woyouService.sendRAWData(command, this._callback());
-            return true;
-        } catch (RemoteException e) {
-            return false;
+    public Boolean openCashDrawer(Boolean isActive) {
+        if (isActive == null) {
+            isActive = true;
+        }
+
+        if (isActive == true) {
+            try {
+                Toast.makeText(_context, "Cekkkk", Toast.LENGTH_LONG).show();
+                byte[] command = new byte[]{0x10, 0x14, 0x00, 0x00, 0x00};
+                _woyouService.sendRAWData(command, this._callback());
+                return true;
+            } catch (RemoteException e) {
+                return false;
+            }
         }
     }
 
@@ -161,7 +168,7 @@ public class SunmiPrinterMethod {
         }
     }
 
-//
+    //
 //    public Boolean setFontType(String fontType) {
 //        byte[] command = EscPosCommand.setFont(fontType);
 //        try {
@@ -234,7 +241,7 @@ public class SunmiPrinterMethod {
         }
     }
 
-    
+
     public void enterPrinterBuffer(Boolean clear) {
         try {
             this._woyouService.enterPrinterBuffer(clear);

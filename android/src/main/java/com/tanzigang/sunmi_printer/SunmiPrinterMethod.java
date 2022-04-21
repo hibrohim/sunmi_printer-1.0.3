@@ -124,7 +124,7 @@ public class SunmiPrinterMethod {
         }
     }
 
-    public Boolean openDrawer() {
+    public boolean openDrawer() {
         try {
             _woyouService.openDrawer(this._callback());
             return true;
@@ -255,7 +255,7 @@ public class SunmiPrinterMethod {
         try {
             this._woyouService.exitPrinterBuffer(clear);
         } catch (RemoteException e) {
-
+`
         }
     }
 

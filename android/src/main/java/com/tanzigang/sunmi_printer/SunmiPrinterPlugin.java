@@ -75,8 +75,8 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
 
       case "OPEN_DRAWER":
         // ICallback callback = call.argument("callback");
-        sunmiPrinterMethod.openDrawer();
-        result.success(true);
+        bool status = sunmiPrinterMethod.openDrawer();
+        result.success(status);
         break;
 
       case "OPEN_CASH_DRAWER":

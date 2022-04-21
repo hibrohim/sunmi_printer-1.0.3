@@ -140,7 +140,6 @@ public class SunmiPrinterMethod {
 
         if (isActive == true) {
             try {
-                Toast.makeText(_context, "Cekkkk", Toast.LENGTH_LONG).show();
                 byte[] command = new byte[]{0x10, 0x14, 0x00, 0x00, 0x00};
                 _woyouService.sendRAWData(command, this._callback());
                 return true;
@@ -149,6 +148,15 @@ public class SunmiPrinterMethod {
             }
         }
         return false;
+    }
+
+    public int getOpenDrawerTimes() {
+        try {
+            final int status = _woyouService.getOpenDrawerTimes();
+            return status;
+        } catch (RemoteException e) {
+            return -1; // error
+        }
     }
 
     public Boolean printColumn(String[] stringColumns, int[] columnWidth, int[] columnAlignment) {

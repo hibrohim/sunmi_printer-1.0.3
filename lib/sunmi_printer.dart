@@ -146,7 +146,13 @@ class SunmiPrinter {
     return status;
   }
 
-  // Open Cash Drawer
+  /// Open Drawer Times, how many times drawer opened
+  static Future<int?> getOpenDrawerTimes() async {
+    final int? times = await _channel.invokeMethod('OPEN_DRAWER_TIMES');
+    return times;
+  }
+
+  /// Open Cash Drawer via RAWData
   static Future<bool?> openCashDrawer({bool isActive = true}) async {
     Map<String, dynamic> arguments = <String, dynamic>{"isActive": isActive};
     final bool? status = await _channel.invokeMethod('OPEN_CASH_DRAWER', arguments);

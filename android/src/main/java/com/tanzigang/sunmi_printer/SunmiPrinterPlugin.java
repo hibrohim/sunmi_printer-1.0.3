@@ -82,6 +82,12 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
                 result.success(status);
                 break;
 
+            case "OPEN_DRAWER_TIMES":
+                // ICallback callback = call.argument("callback");
+                final int times = sunmiPrinterMethod.getOpenDrawerTimes();
+                result.success(times);
+                break;
+
             case "OPEN_CASH_DRAWER":
                 Boolean isActive = call.argument("isActive");
                 sunmiPrinterMethod.openCashDrawer(isActive);

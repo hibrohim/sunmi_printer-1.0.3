@@ -141,15 +141,15 @@ class SunmiPrinter {
   }
 
   /// Open Cash Drawer
-  static Future<void> openDrawer() async {
+  static Future<bool?> openDrawer() async {
     final bool? status = await _channel.invokeMethod("OPEN_DRAWER");
-    print('openDrawer: $status');
+    return status;
   }
 
   // Open Cash Drawer
-  static Future<void> openCashDrawer() async {
+  static Future<bool?> openCashDrawer() async {
     final bool? status = await _channel.invokeMethod('OPEN_CASH_DRAWER');
-    print('openCashDrawer: $status');
+    return status;
   }
 
 }

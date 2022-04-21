@@ -148,6 +148,7 @@ public class SunmiPrinterMethod {
                 return false;
             }
         }
+        return false;
     }
 
     public Boolean printColumn(String[] stringColumns, int[] columnWidth, int[] columnAlignment) {

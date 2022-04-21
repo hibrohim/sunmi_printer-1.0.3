@@ -126,6 +126,7 @@ class SunmiPrinter {
   /// Exit the transaction printing mode
   static Future<void> exitTransactionPrint([bool clear = true]) async {
     print('exitTransactionPrint $clear');
+    Map<String, dynamic> arguments = <String, dynamic>{"clearExit": clear};
     await _channel.invokeMethod("EXIT_PRINTER_BUFFER", arguments);
   }
 

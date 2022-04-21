@@ -126,7 +126,9 @@ public class SunmiPrinterMethod {
 
     public boolean openDrawer() {
         try {
+            Toast.makeText(_context, "Start openDrawer", Toast.LENGTH_LONG).show();
             _woyouService.openDrawer(this._callback());
+            Toast.makeText(_context, "Done openDrawer", Toast.LENGTH_LONG).show();
             return true;
         } catch (RemoteException e) {
             return false;
@@ -136,7 +138,9 @@ public class SunmiPrinterMethod {
     public Boolean openCashDrawer() {
         byte[] command = new byte[]{0x10, 0x14, 0x00, 0x00, 0x00};
         try {
+            Toast.makeText(_context, "Start openDrawer", Toast.LENGTH_LONG).show();
             _woyouService.sendRAWData(command, this._callback());
+            Toast.makeText(_context, "Done openDrawer", Toast.LENGTH_LONG).show();
             return true;
         } catch (RemoteException e) {
             return false;

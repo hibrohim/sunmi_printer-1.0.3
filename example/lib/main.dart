@@ -247,6 +247,20 @@ class _HomeState extends State<Home> {
                     child: Text(_apiCall ? 'Printing...' : 'Print Label'),
                   ),
                   SizedBox(height: 10),
+                  TextButton(
+                    onPressed: () async {
+                      open();
+                    },
+                    child: Text('open()'),
+                  ),
+                  SizedBox(height: 10),
+                  TextButton(
+                    onPressed: () async {
+                      openCash();
+                    },
+                    child: Text('openCash()'),
+                  ),
+                  SizedBox(height: 10),
                 ],
               ),
             ),

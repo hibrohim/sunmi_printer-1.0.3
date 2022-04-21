@@ -255,7 +255,7 @@ public class SunmiPrinterMethod {
         try {
             this._woyouService.exitPrinterBuffer(clear);
         } catch (RemoteException e) {
-`
+
         }
     }
 
